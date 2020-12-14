@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Body Mass Index Prediction - ML Project</title>
+    <style>
+        body {
+        background-color: gray;
+        }
+        div.form {
+        background-color: pink;
+        border-radius: 10px;
+        box-shadow: 0px 2px 25px #666666;
+        margin-left: 400px;
+        margin-right: 400px;
+        }
+        input[type=text] {
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        height: 25px;
+        width: 180px;
+        }
+        input[type=number] {
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        height: 25px;
+        width: 180px;
+        }
+        input[type=submit] {
+        background-color: gray;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        width: 100px;
+        height: 25px;
+        }
+        input[type=submit]:hover {
+        box-shadow: 0px 2px 20px #666666;
+        cursor: pointer;
+        }
+        select[name=sex] {
+        width: 180px;
+        height: 25px;
+        border: none;
+        border-radius: 5px;
+        }
+        .sex_list {
+        text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Body Mass Index Prediction - ML Project</h1>
+        <div class="form">
+            <form action="{{ url_for('predict') }}" method="POST">
+                <br>
+                <input type="number" name="age" placeholder="Age" required><br><br>
+                <input type="text" name="height" placeholder="Height(Inches)" required><br><br>
+                <input type="text" name="weight" placeholder="Weight(Pounds)" required><br><br>
+                <input type="submit" value="Predict BMI"><br><br>
+            </form>
+        </div>
+        <div>
+            <h2>{{ prediction_text }}</h2>
+        </div>
+    </center>
+</body>
+</html>
